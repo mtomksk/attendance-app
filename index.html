@@ -4,9 +4,41 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>勤怠管理アプリ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
+  <div class="app">
+    <header class="app-header">
+      <h1 class="app-title">⏰ 勤怠管理アプリ</h1>
+      <p id="current-time" class="current-time">--:--:--</p>
+    </header>
+
+    <main class="app-main">
+      <section class="action-section">
+        <div class="button-group">
+          <button id="btn-clock-in" class="btn btn-clock-in">出勤</button>
+          <button id="btn-clock-out" class="btn btn-clock-out">退勤</button>
+        </div>
+        <p id="status-message" class="status-message status-off">退勤済み</p>
+      </section>
+
+      <section class="record-section">
+        <h2 class="section-title">本日の記録</h2>
+        <ul id="record-list" class="record-list"></ul>
+
+        <div class="total-hours-box">
+          <span class="total-hours-label">合計勤務時間</span>
+          <span id="total-hours" class="total-hours-value">0時間 0分 0秒</span>
+        </div>
+
+        <button id="btn-clear" class="btn btn-clear">履歴クリア</button>
+      </section>
+    </main>
+  </div>
 
   <script src="app.js"></script>
 </body>
