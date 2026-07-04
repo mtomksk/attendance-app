@@ -1,1 +1,254 @@
 /* 勤怠管理アプリ - スタイルシート */
+
+:root {
+  --color-bg: #0f1420;
+  --color-surface: #1a2233;
+  --color-surface-alt: #212b40;
+  --color-border: #2c3750;
+  --color-text: #e8ecf5;
+  --color-text-muted: #8b95ab;
+  --color-accent: #5b8cff;
+  --color-green: #34d399;
+  --color-green-bg: rgba(52, 211, 153, 0.12);
+  --color-red: #f87171;
+  --color-red-bg: rgba(248, 113, 113, 0.12);
+  --color-gray: #6b7688;
+  --color-gray-bg: rgba(107, 118, 136, 0.15);
+  --radius: 14px;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(160deg, #0b0f19 0%, #131c2e 100%);
+  color: var(--color-text);
+  font-family: "Noto Sans JP", "Hiragino Sans", "Yu Gothic", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 32px 16px;
+}
+
+.app {
+  width: 100%;
+  max-width: 480px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.app-header {
+  text-align: center;
+  padding: 28px 20px 20px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.app-title {
+  margin: 0 0 8px;
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.current-time {
+  margin: 0;
+  font-size: 2.2rem;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-accent);
+}
+
+.app-main {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.action-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.button-group {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+}
+
+.btn {
+  flex: 1;
+  padding: 14px 18px;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-text);
+  background: var(--color-surface-alt);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn-clock-in {
+  background: var(--color-green-bg);
+  border-color: rgba(52, 211, 153, 0.4);
+  color: var(--color-green);
+}
+
+.btn-clock-in:hover {
+  background: rgba(52, 211, 153, 0.2);
+}
+
+.btn-clock-out {
+  background: var(--color-red-bg);
+  border-color: rgba(248, 113, 113, 0.4);
+  color: var(--color-red);
+}
+
+.btn-clock-out:hover {
+  background: rgba(248, 113, 113, 0.2);
+}
+
+.status-message {
+  margin: 0;
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.status-working {
+  background: var(--color-green-bg);
+  color: var(--color-green);
+}
+
+.status-off {
+  background: var(--color-gray-bg);
+  color: var(--color-gray);
+}
+
+.record-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.section-title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+}
+
+.record-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 240px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.record-list:empty::before {
+  content: "記録はまだありません";
+  display: block;
+  padding: 16px;
+  text-align: center;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+}
+
+.record-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: var(--color-surface-alt);
+  border-left: 4px solid transparent;
+  font-size: 0.95rem;
+}
+
+.record-clock-in {
+  border-left-color: var(--color-green);
+  color: var(--color-green);
+}
+
+.record-clock-out {
+  border-left-color: var(--color-red);
+  color: var(--color-red);
+}
+
+.total-hours-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 16px;
+  background: var(--color-surface-alt);
+  border-radius: 10px;
+}
+
+.total-hours-label {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+}
+
+.total-hours-value {
+  font-size: 1.1rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-accent);
+}
+
+.btn-clear {
+  background: transparent;
+  border-color: var(--color-border);
+  color: var(--color-text-muted);
+}
+
+.btn-clear:hover {
+  background: var(--color-surface-alt);
+  color: var(--color-text);
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 0;
+  }
+
+  .app {
+    max-width: 100%;
+    min-height: 100vh;
+    border-radius: 0;
+    border: none;
+  }
+
+  .current-time {
+    font-size: 1.8rem;
+  }
+
+  .button-group {
+    flex-direction: column;
+  }
+}
